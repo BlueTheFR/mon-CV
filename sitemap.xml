@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://bluethefr.github.io/-mon-portfolio/</loc>
+    <loc>http://localhost:1313/-mon-portfolio/</loc>
   </url><url>
-    <loc>https://bluethefr.github.io/-mon-portfolio/categories/</loc>
+    <loc>http://localhost:1313/-mon-portfolio/categories/</loc>
   </url><url>
-    <loc>https://bluethefr.github.io/-mon-portfolio/tags/</loc>
+    <loc>http://localhost:1313/-mon-portfolio/tags/</loc>
   </url>
 </urlset>
