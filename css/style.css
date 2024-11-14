@@ -1,76 +1,82 @@
-/* Styles généraux */
+/* ==========================
+   Styles Généraux
+   ========================== */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000;
-    color: #FFFF;
+    background-color: #000000; /* Fond noir pour toute la page */
+    color: #FFFF; /* Texte blanc */
     margin: 0;
     padding: 20px;
+    box-sizing: border-box; /* Pour garantir que le padding ne dépasse pas le contenu */
 }
 
+/* Titre principal */
 h1 {
     text-align: center;
     color: purple;
 }
 
-/* Conteneur de la page avec l'image de fond */
+/* ==========================
+   Conteneur de la page
+   ========================== */
 .page-container {
-    background-image: url('/images/image.jpg'); /* Assurez-vous de placer l'image dans 'static/images/' */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #000000; /* Assurez-vous que le fond de la page est noir */
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100vh; /* Pour couvrir tout l'écran */
 }
 
-/* Collapsible sections */
+/* ==========================
+   Collapsible Sections
+   ========================== */
+
+/* Style des titres principaux (collapsibles) */
 .main-collapsible, .sub-collapsible {
     cursor: pointer;
     font-weight: bold;
-    color: black;
+    color: black; /* Couleur du texte pour les titres */
     padding: 10px 0;
     text-align: center;
     border-bottom: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: #f1f1f1; /* Fond des titres de section */
     margin-top: 10px;
+    border-radius: 5px;
 }
 
+.main-collapsible:hover, .sub-collapsible:hover {
+    background-color: #ddd;
+}
+
+/* Contenu des sections collapsibles */
 .main-collapsible-content, .sub-collapsible-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    background-color: #000000;
+    background-color: #222222; /* Fond plus sombre pour le contenu */
     padding: 0 10px;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    gap: 20px;
-    background-color: #333;
-    padding: 10px;
     border-radius: 5px;
 }
 
-    .navbar a {
-        color: white;
-        text-decoration: none;
-        padding: 10px;
+/* Lorsque la section est ouverte */
+.main-collapsible-content.open, .sub-collapsible-content.open {
+    max-height: 1000px; /* Ajustez la hauteur en fonction du contenu */
+    padding: 10px;
+}
+
+/* ==========================
+   Responsiveness
+   ========================== */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
     }
 
-/* Sous-menu */
-.dropdown {
-    position: relative;
-}
+    .dropdown-content {
+        width: 100%; /* Utilise toute la largeur sur mobile */
+    }
 
-.dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #444;
-    z-index: 10;
-    display: none;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+    .page-container {
+        padding: 10px;
+    }
 }
