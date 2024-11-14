@@ -6,7 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
         header.addEventListener('click', function () {
             const content = this.nextElementSibling;
             if (content) {
-                content.classList.toggle('open'); // Ajout/suppression de la classe 'open'
+                content.classList.toggle('open');
+
+                // Si le contenu est ouvert, on définit la hauteur pour qu'il s'agrandisse
+                if (content.classList.contains('open')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    // Si le contenu est fermé, on remet maxHeight à 0
+                    content.style.maxHeight = "0";
+                }
             }
         });
     });
@@ -18,7 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
         header.addEventListener('click', function () {
             const content = this.nextElementSibling;
             if (content) {
-                content.classList.toggle('open'); // Ajout/suppression de la classe 'open'
+                content.classList.toggle('open');
+
+                // Définir la hauteur dynamique pour ouvrir ou fermer la sous-section
+                if (content.classList.contains('open')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = "0";
+                }
             }
         });
     });
