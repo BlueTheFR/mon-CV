@@ -1,4 +1,3 @@
-/* Image de fond */
 .page-container {
     background-image: url('/images/image.jpg'); /* Assurez-vous de placer l'image dans 'static/images/' */
     background-size: cover;
