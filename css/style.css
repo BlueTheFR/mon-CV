@@ -1,66 +1,42 @@
-body {
-    font-family: Arial, sans-serif; /* Police de caractère */
-    margin: 0;
-    padding: 20px; /* Espacement autour du contenu */
-    background-color: #f4f4f4; /* Couleur de fond de la page */
-}
-
+/* Image de fond */
 .page-container {
-    display: flex; /* Utilisation de Flexbox pour le conteneur principal */
-    flex-direction: column; /* Empiler les éléments verticalement */
-    align-items: stretch; /* Les sections s'étendent à la largeur du conteneur */
-    width: 80%; /* Largeur du conteneur principal */
-    max-width: 900px; /* Limite la taille pour garder une bonne lisibilité */
-    padding: 20px; /* Espacement interne */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour donner de la profondeur */
-    border-radius: 10px; /* Coins arrondis */
+    background-image: url('/images/image.jpg'); /* Assurez-vous de placer l'image dans 'static/images/' */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-h1 {
-    text-align: center; /* Centre le titre */
+/* Navbar */
+.navbar {
+    display: flex;
+    gap: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-h2 {
-    margin: 10px 0; /* Espace autour des sous-titres */
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+/* Sous-menu */
+.dropdown {
+    position: relative;
 }
 
-/* Justification des informations personnelles */
-.personal-info {
-    text-align: justify; /* Justifie le texte */
-    margin: 20px 0; /* Espace autour de la section */
-    line-height: 1.5; /* Augmente l'espacement entre les lignes */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    z-index: 10;
+    display: none;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-/* Nouveau style pour centrer le texte */
-.center-text {
-    text-align: center; /* Centre le texte */
-    margin: 10px 0; /* Espace autour de la section */
-}
-
-/* Style des sections collapsibles */
-.main-collapsible, .sub-collapsible {
-    cursor: pointer; /* Change le curseur au survol */
-    font-weight: bold; /* Met en gras le texte */
-    padding: 10px 15px; /* Plus d'espace autour du texte */
-    text-align: center; /* Centre le texte */
-    border: none; /* Supprime la bordure par défaut */
-    margin-top: 10px; /* Espace entre les sections */
-    background-color: #e7f3ff; /* Couleur de fond pour les titres */
-    color: #333; /* Couleur du texte */
-    transition: background-color 0.3s ease; /* Transition pour le changement de couleur */
-}
-
-.main-collapsible-content, .sub-collapsible-content {
-    max-height: 0; /* Caché par défaut */
-    overflow: hidden; /* Cache le contenu */
-    transition: max-height 0.3s ease-out, opacity 0.5s ease-out; /* Animation fluide */
-    padding: 0 10px; /* Espacement à gauche et à droite */
-    background-color: #ffffff; /* Couleur de fond du contenu */
-    color: #333; /* Couleur du texte du contenu */
-}
-
-/* Ajout de styles pour les listes */
-ul {
-    list-style-type: disc; /* Type de liste */
-    padding-left: 20px; /* Espacement à gauche */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
