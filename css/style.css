@@ -1,8 +1,43 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #FFFF;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: purple;
+}
+
+/* Conteneur de la page avec l'image de fond */
 .page-container {
     background-image: url('/images/image.jpg'); /* Assurez-vous de placer l'image dans 'static/images/' */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* Collapsible sections */
+.main-collapsible, .sub-collapsible {
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+}
+
+.main-collapsible-content, .sub-collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #000000;
+    padding: 0 10px;
 }
 
 /* Navbar */
