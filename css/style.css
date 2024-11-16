@@ -2,84 +2,136 @@
    Styles Généraux
    ========================== */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #000000; /* Fond noir pour toute la page */
-    color: #FFFF; /* Texte blanc */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    background-color: #000000; /* Fond noir */
+    color: #FFFFFF; /* Texte blanc */
     margin: 0;
     padding: 20px;
-    height: 100%; /* Permet au body de s'étendre sur toute la hauteur disponible */
+    line-height: 1.6;
+    overflow-y: auto; /* Permet le défilement global */
 }
 
 /* Titre principal */
 h1 {
     text-align: center;
     color: purple;
-    margin-top: 0; /* Enlever la marge par défaut du titre */
-    padding-bottom: 10px; /* Petit espacement sous le titre */
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 /* ==========================
-   Conteneur de la page
+   Conteneur Principal
    ========================== */
 .page-container {
-    background-color: #000000; /* Fond noir pour toute la page */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alignement du contenu en haut */
-    height: auto; /* Laissez la page se développer en hauteur */
-    overflow-y: auto; /* Permet au contenu de défiler si nécessaire */
-    flex-grow: 1; /* Permet au conteneur de croître si nécessaire */
+    justify-content: flex-start;
+    height: auto; /* Ajustement automatique */
+    overflow-y: auto;
+    flex-grow: 1;
 }
 
 /* ==========================
-   Collapsible Sections
+   Navigation
+   ========================== */
+.navbar {
+    display: flex;
+    gap: 20px;
+    background-color: #333; /* Fond sombre */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+    .navbar a {
+        color: white; /* Lien blanc */
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+        .navbar a:hover {
+            background-color: #555; /* Fond de survol */
+        }
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    display: none; /* Initialement caché */
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    background-color: #333;
+    max-height: none; /* Pas de limite de hauteur */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Afficher le menu déroulant lorsqu'on survole */
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+    .dropdown-content a:hover {
+        background-color: #555; /* Changer la couleur de fond lors du survol */
+    }
+
+/* ==========================
+   Sections Collapsibles
    ========================== */
 
-/* Style des titres principaux (collapsibles) */
+/* Titres collapsibles */
+.main-collapsible, .sub-collapsible {
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Couleurs des titres */
 .main-collapsible {
-    cursor: pointer;
-    font-weight: bold;
-    color: black; /* Couleur du texte pour les titres */
-    padding: 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    background-color: #12bbd9; /* Fond des titres de section */
-    margin-top: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease; /* Transition douce lors du survol */
+    background-color: #12bbd9; /* Bleu pour les titres principaux */
 }
+
 .sub-collapsible {
-    cursor: pointer;
-    font-weight: bold;
-    color: black; /* Couleur du texte pour les titres */
-    padding: 10px 0;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    background-color: #FFFF; /* Fond des titres de section */
-    margin-top: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease; /* Transition douce lors du survol */
+    background-color: #FFFFFF; /* Blanc pour les sous-titres */
 }
 
-.main-collapsible:hover, .sub-collapsible:hover {
-    background-color: #ddd;
-}
+    /* Effet de survol */
+    .main-collapsible:hover, .sub-collapsible:hover {
+        background-color: #ddd; /* Fond gris clair */
+    }
 
-/* Contenu des sections collapsibles */
+/* Contenu des sections */
 .main-collapsible-content, .sub-collapsible-content {
     max-height: 0; /* Caché par défaut */
-    overflow: hidden;
-    overflow-y: auto;
-    transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Transition douce */
-    background-color: #676767; /* Fond plus sombre pour le contenu */
+    overflow: hidden; /* Pas de défilement interne */
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    background-color: #676767; /* Fond gris foncé */
     padding: 0 10px;
     border-radius: 5px;
 }
 
-    /* Lorsque la section est ouverte */
+    /* Lorsque les sections sont ouvertes */
     .main-collapsible-content.open, .sub-collapsible-content.open {
-        max-height: auto;
+        max-height: 100vh; /* Autorise le contenu visible */
         padding: 10px;
     }
 
@@ -87,30 +139,28 @@ h1 {
    Responsiveness (Mobile)
    ========================== */
 @media screen and (max-width: 768px) {
+    /* Barre de navigation en colonne */
     .navbar {
         flex-direction: column;
         gap: 10px;
     }
 
+    /* Ajustement du menu déroulant */
     .dropdown-content {
-        width: 100%; /* Utilise toute la largeur sur mobile */
+        width: 100%;
     }
 
+    /* Conteneur principal */
     .page-container {
         padding: 10px;
     }
 
-    /* Collapsibles deviennent plus faciles à cliquer sur mobile */
+    /* Titres collapsibles plus grands sur mobile */
     .main-collapsible, .sub-collapsible {
-        padding: 15px 0; /* Augmenter la taille du padding sur mobile */
+        padding: 15px 0;
     }
 
-    /* Contenu des collapsibles ajusté pour mobile */
-    .main-collapsible-content, .sub-collapsible-content {
-        padding: 10px;
-    }
-
-    /* Modifier la taille du titre sur mobile */
+    /* Taille des titres ajustée */
     h1 {
         font-size: 2rem;
     }

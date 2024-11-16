@@ -20,7 +20,6 @@
 
 /* Forcer la couleur blanche pour tous les éléments à l'intérieur de .page-container */
 .page-container * {
-    color: #FFFFFF !important; /* Texte en blanc pour tous les éléments */
     margin: 0; /* Supprimer les marges par défaut */
 }
 
@@ -43,12 +42,13 @@
     background-size: cover; /* L'image couvre toute la page */
     background-position: center; /* Centrer l'image */
     background-repeat: no-repeat; /* Ne pas répéter l'image */
-    height: 100vh; /* Hauteur égale à la fenêtre du navigateur */
+    min-height: 100vh; /* Hauteur égale à la fenêtre du navigateur */
     display: flex; /* Utilisation de flexbox pour centrer le contenu */
     flex-direction: column; /* Disposition en colonne */
     justify-content: center; /* Centrer verticalement */
     padding: 40px; /* Ajouter du padding autour du texte */
     box-sizing: border-box; /* Calculer le padding dans la taille totale */
+	overflow: auto;
 }
 
 /* Ajuster la taille du titre */
