@@ -1,0 +1,4 @@
+baseURL = "https://bluethefr.github.io/mon-CV/"
+languageCode = "fr"
+title = "Mon CV - Thibaud Perucca"
+theme = "ananke"
