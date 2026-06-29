@@ -131,7 +131,7 @@ h1 {
 }
 
 .main-collapsible-content.open, .sub-collapsible-content.open {
-    max-height: 100vh;
+    max-height: 3000px;
     padding: 10px;
 }
 
